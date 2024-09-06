@@ -13,7 +13,7 @@ ctx.fillRect(0, 0, canvas.width, canvas.height);
 
 let randomArray = createRandomArray(arrayLength);
 showArray(randomArray);
-bubbleSort(randomArray);
+selectionSort(randomArray);
 
 function createRandomArray(arrLength){
 	let result = [];

@@ -12,6 +12,27 @@ async function bubbleSort(array){
 		}
 	}
 }
+
+async function selectionSort(array){
+	let sort = array.slice();
+	for(let i = 0; i < sort.length; i++){
+		let min = sort[i];
+		let index = i;
+		for(let j = i; j < sort.length; j++){
+			if(sort[j] < min){
+				min = sort[j];
+				index = j;
+			}
+		}
+		let buffer = sort[i];
+		sort[i] = sort[index];
+		sort[index] = buffer;
+
+		showArray(sort, index);
+		await sleep(1);
+	}
+}
+
 async function sleep(ms){
 	return new Promise((resolve) => setTimeout(resolve, ms));
 }
