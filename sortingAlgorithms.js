@@ -33,6 +33,26 @@ async function selectionSort(array){
 	}
 }
 
+async function insertionSort(array){
+	let sort = array.slice();
+	for(let i = 1; i < sort.length; i++){
+		let j = i;
+		while(j >= 0){
+			if(sort[j] < sort[j-1]){
+				let buffer = sort[j];
+				sort[j] = sort[j-1];
+				sort[j-1] = buffer;
+			}
+			else{
+				break;
+			}
+			showArray(sort, j);
+			await sleep(1);
+			j--;
+		}
+	}
+}
+
 async function sleep(ms){
 	return new Promise((resolve) => setTimeout(resolve, ms));
 }
