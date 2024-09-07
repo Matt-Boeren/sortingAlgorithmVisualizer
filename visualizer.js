@@ -1,7 +1,7 @@
 const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext("2d");
 
-const arrayLength = 200;
+const arrayLength = 300;
 const pixHeight = Math.floor((window.innerHeight*0.90)/arrayLength);
 const pixLength = Math.floor((window.innerWidth*0.99)/arrayLength);
 
@@ -13,7 +13,7 @@ ctx.fillRect(0, 0, canvas.width, canvas.height);
 
 let randomArray = createRandomArray(arrayLength);
 showArray(randomArray, 0);
-bubbleSort(randomArray);
+quickSort(randomArray);
 
 function createRandomArray(arrLength){
 	let result = [];

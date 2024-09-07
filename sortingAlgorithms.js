@@ -53,7 +53,52 @@ async function insertionSort(array){
 	}
 }
 
+let totalArray = [];
+async function quickSort(array){
+	let sort = array.slice();
+	quickSortRec(sort, 0, sort.length);
+}
+
+async function quickSortRec(array, start, end){
+	let less = [];
+	let more = [];
+	let pivot = array[end - 1];
+	let tempArray = [];
+	for(let i = start; i < end; i++){
+		tempArray.push(array[i]);
+	}
+	for(let i  = 0; i < tempArray.length - 1; i++){
+		if(tempArray[i] > pivot){
+			more.push(tempArray[i]);
+		}
+		else{
+			less.push(tempArray[i]);
+		}
+	}
+	totalArray = [];
+	for(let i = 0; i < start; i++){
+		totalArray.push(array[i]);
+	}
+	for(let i = 0; i < less.length; i++){
+		totalArray.push(less[i]);
+	}
+	totalArray.push(pivot);
+	for(let i = 0; i < more.length; i++){
+		totalArray.push(more[i]);
+	}
+	for(let i = end; i < array.length; i++){
+		totalArray.push(array[i]);
+	}
+	showArray(totalArray, end - 1);
+	await sleep(1);
+	if(less.length > 1){
+		await quickSortRec(totalArray, start, start + less.length);
+	}
+	if(more.length > 1){
+		await quickSortRec(totalArray, end - more.length, end);
+	}
+}
+
 async function sleep(ms){
 	return new Promise((resolve) => setTimeout(resolve, ms));
 }
-
