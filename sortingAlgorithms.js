@@ -46,7 +46,7 @@ async function insertionSort(array){
 			else{
 				break;
 			}
-			showArray(sort, j);
+			showArray(sort, j - 1);
 			await sleep(1);
 			j--;
 		}
@@ -56,7 +56,7 @@ async function insertionSort(array){
 let totalArray = [];
 async function quickSort(array){
 	let sort = array.slice();
-	quickSortRec(sort, 0, sort.length);
+	await quickSortRec(sort, 0, sort.length);
 }
 
 async function quickSortRec(array, start, end){
