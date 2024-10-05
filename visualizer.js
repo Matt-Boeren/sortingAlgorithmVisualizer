@@ -11,10 +11,6 @@ canvas.height = arrayLength*pixHeight + 2*pixHeight;
 ctx.fillStyle = "black";
 ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-let randomArray = createRandomArray(arrayLength);
-showArray(randomArray, 0);
-quickSort(randomArray);
-
 function createRandomArray(arrLength){
 	let result = [];
 	let sorted = [];
